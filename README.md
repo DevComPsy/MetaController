@@ -1,7 +1,7 @@
 # MetaController
 
-Code for paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser JAACAP (in rev)
-This repository contains MATLAB code used to simulate the meta-controller framework proposed in the paper. 
+Code for the paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser JAACAP (in rev)
+This repository contains the MATLAB code used to simulate the meta-controller framework proposed in the paper. 
 
 
 RUN_mc.m sets all parameters (e.g. learning rate, iterations) and runs through two games of different complexities. 
