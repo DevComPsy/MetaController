@@ -1,24 +1,16 @@
-function [stimuli_outcome_a] = task_a(mc)
+function [rew] = task_a(mc)
 % Implementation of a simple motor task, one action gives rewards
 
-stimuli_sign=(randperm(2));
-
-pA1= find(stimuli_sign(1,1));
-pA2= stimuli_sign(1,2);
-
-pA1 = .8;   % action a (e.g. left press) 80% reward
-pA2 = .2;   % action b (e.g. right press) 20% reward
+pA1 = .8;   % action a 80% reward
+pA2 = .2;   % action b 20% reward
 
 
 %% play one game
 rA1 = rand(1)<=pA1;
 rA2 = rand(1)<=pA2;
 
-%select an action
-
-%outcome
-
-chosen_stimulus= [stimuli_sign(1,1) NaN NaN]%position of the stimulus (1=left, 2=right), sign and context are diregarded
-%outcome=
-
+%% set up reward matrix
+rew = [];
+for i = 1:length(mc.phi)
+    rew{i} = repmat([rA1 rA2]',1,size(mc.q_state{i},2)); %repmat(input, nr of rows, nr of columns (number of columns mc.q_state)
 end
