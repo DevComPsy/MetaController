@@ -1,6 +1,6 @@
 # MetaController
 
-Code for paper "Self-evaluation of decision-making: A general Bayesian framework for metacognitive computation" Loosen & Hauser JAACAP (in rev)
+Code for paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser JAACAP (in rev)
 This repository contains MATLAB code used to simulate the meta-controller framework proposed in the paper. 
 
 
