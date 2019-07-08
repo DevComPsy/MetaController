@@ -14,6 +14,11 @@ pA2 = .2;   % action b (e.g. right press) 20% reward
 rA1 = rand(1)<=pA1;
 rA2 = rand(1)<=pA2;
 
-outcome_a= [stimuli_sign(1,1) NaN NaN]%position of the stimulus (1=left, 2=right), sign and context are diregarded
+%select an action
+
+%outcome
+
+chosen_stimulus= [stimuli_sign(1,1) NaN NaN]%position of the stimulus (1=left, 2=right), sign and context are diregarded
+%outcome=
 
 end
