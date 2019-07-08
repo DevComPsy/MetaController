@@ -31,7 +31,9 @@ end
 % 	r= rand(1)<=outcome_prob(1,1) a=1 ; else r= rand(1)<=outcome_prob(1,2) a=2; 
 % end
 
-outcome= [a stimuli_sign(a)  stimuli_backgr];%position of the stimulus (1=left, 2=right), sign of the stimulus, context 
+chosen_stimulus= [a stimuli_sign(a)  stimuli_backgr];%position of the stimulus (1=left, 2=right), sign of the stimulus, context 
+
+%outcome=
 
 end
 
