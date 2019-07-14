@@ -1,19 +1,25 @@
-function [mc] = mc_initialize(n_iter,a_tot, s_tot)
+function [mc] = mc_initialize(niter, nactions, nstates)
 
-% n: number of systems
-% a_tot: number of actions for each system (1*n vector)
-% s_tot: number of state dimensions for each system (1*n vector)
-
+% structure with the following fields
+    
 mc = [];
 
-for i = 1:length(a_tot)
-    mc.pi{i} = ones(a_tot(i),s_tot(i)) ./ (a_tot(i)*s_tot(i));    % action policy
-%     mc.pi_b{i} = ones(a_tot(i),s_tot(i)) ./ (a_tot(i)*s_tot(i));    % action policy game b
-    mc.q_state{i} = ones(a_tot(i),s_tot(i)) ./ (a_tot(i)*s_tot(i));    % value of state space (equal value for all states)
+
+%     mc.V_b{i} = zeros(nsigns);
+%     mc.V_c{i} = zeros(ncontext*nsign);
+    
+for i = 1:length(niter)
+%     mc.pi{i} = ones(nstates(i),nactions(i)) ./ (nactions(i)*nstates(i));    % action policy
     mc.phi(i) = 0;         % inverse confidence
-    mc.cp(i) = numel(mc.q_state{i});         % complexity
-    mc.act(i,n_iter) = nan; % action chosen
-    mc.rew(i,n_iter) = nan;     % outcome game a
-%     mc.rew_b(i,n_iter) = nan; % outcome game b
-    mc.pe{i} = [];  % prediction errors on game a
+    mc.act(i) = nan;
+    mc.outcome(i) = nan;
+    mc.choice(i) = nan; 
+    mc.V_s{i} = [];
+    mc.pe_mf{i} = [];
+    mc.pe_mb{i} = [];
+    mc.Qmf{i} = [];
+    mc.Qmb{i} = [];
+    mc.phi_mf{i} = [];
+    mc.phi_mb{i} = [];
+    mc.shown_stimulus(i) = [];
 end
