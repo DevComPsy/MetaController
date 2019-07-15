@@ -1,13 +1,12 @@
-function [idx] = metaCont_act(mc,g)
+function [idx,mc, task] = metaCont_act(mc,task)
 
 
-% select action of the system with highest confidence (argmin) for the
-% specific states
+% selecting a system (with highest confidence, argmin)from which we collect 
+% a Q value determining the action
 
-mc.shown_stimulus
 
-[~,idx] = min(mc.phi);
+[~,idx] = min([mc.phi{:}]);
 
-tmp_a = mc.act(idx,g);
-
-[mc_a,mc_s] = ind2sub(size(mc.pi{idx}),tmp_a);
+task.choice= task.action(idx);
+task.chosenstimulus=[task.choice task.stimuli_sign(task.choice) task.stimuli_backgr];
+end
