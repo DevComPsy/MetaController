@@ -1,8 +1,10 @@
-function mc = learn_phi(mc)
+function mc = learn_phi(mc,alphasystem,cost,idx, task, nsystem)
 
-for i = 1:length(mc.phi)
-    mc.phi_mf{i} = mc.phi(i) + abs(mc.pe_mf{i});
+for i = 1:length(nsystem)
     
-    mc.phi_mb{i} = mc.phi(i) + abs(mc.pe_mb{i});
-
+    mc.pesystem = task.outcome - mc.vstate - cost;
+    mc.vstate = mc.vstate + alphasystem*mc.pesystem;
+    mc.phi{i,idx} = mc.phi{idx} + abs(mc.pesystem); 
+end 
+   
 end
