@@ -1,25 +1,14 @@
-function [mc] = mc_initialize(niter, nactions, nstates)
+function [mc] = mc_initialize(niter, nactions, nstates, nsystems)
 
 % structure with the following fields
     
 mc = [];
-
-
-%     mc.V_b{i} = zeros(nsigns);
-%     mc.V_c{i} = zeros(ncontext*nsign);
     
-for i = 1:length(niter)
-%     mc.pi{i} = ones(nstates(i),nactions(i)) ./ (nactions(i)*nstates(i));    % action policy
-    mc.phi(i) = 0;         % inverse confidence
-    mc.act(i) = nan;
-    mc.outcome(i) = nan;
-    mc.choice(i) = nan; 
-    mc.V_s{i} = [];
-    mc.pe_mf{i} = [];
-    mc.pe_mb{i} = [];
-    mc.Qmf{i} = [];
-    mc.Qmb{i} = [];
-    mc.phi_mf{i} = [];
-    mc.phi_mb{i} = [];
-    mc.shown_stimulus(i) = [];
+for i = 1:length(nsystems)
+    mc.phi{i} = 0;         % inverse confidence
+    mc.pe{i} = 0;
+    mc.Qs{i} = zeros(2,1);
+    mc.Qc{i} = zeros(2,2,2);
+    mc.pesystem (i) = nan; 
+    mc.vstate (i) = 0;
 end
