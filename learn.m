@@ -1,18 +1,31 @@
-function mc = learn(mc,nactions,alpha, nstates, niter)
+function [mc] = learn(mc,task, nactions,alpha,nstates, idxn, niter)
 
-
-for i = 1:length(n_iter)
     
- % update 
-% mc.shown_stimulus
+%% calc PEs
 
-% mc.choice
+    %simple system
+if task.choice==1; 
+mc.pe{1} =  task.outcome - mc.Qs{1}(1);
+else   mc.pe{1,1} =  task.outcome - mc.Qs{1}(2); end
 
-mc.V_s=[mean(mc.outcome|mc.choice==1); mean(mc.outcome|mc.choice==2)];
+    %complex system
 
-mc.pe_mf= mc.outcomes - mc.Qmf
-mc.Qmf= mc.Qmf+ alpha*(mc.pe_mf);
+ Qtemp=mc.Qc{1}(task.chosenstimulus(1),task.chosenstimulus(2),task.chosenstimulus(3));
+    
+    Qtemp(isnan(Qtemp))=0;
+mc.pe{2,2} =  task.outcome - Qtemp; 
+     
+%% update 
 
-mc.pe_mb= mc.outcomes - mc.Qmb
-mc.Qmb = mc.Qmb + alpha*(mc.pe_mb);
+   %simple system
+if task.choice==1
+mc.Qs{1}(1,1)   = mc.Qs{1, 1}(1,1)+ alpha*mc.pe{1,1};
+else
+mc.Qs{1}(2,1)   = mc.Qs{1, 1}(2,1) + alpha*mc.pe{1,1};
+end
+ 
+   %complex system
+
+ mc.Qc{1}(task.chosenstimulus(1),task.chosenstimulus(2),task.chosenstimulus(3))=  mc.Qc{1}(task.chosenstimulus(1),task.chosenstimulus(2),task.chosenstimulus(3)) + alpha * mc.pe{2,2}; 
+
 end
