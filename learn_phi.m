@@ -1,4 +1,5 @@
 function mc = learn_phi(mc,settings,g)
+% tes
 
 for i = 1:settings.nsystems
     
