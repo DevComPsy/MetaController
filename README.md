@@ -20,3 +20,4 @@ The following functions will be described in the order that they are called by R
 -  determine_outcome.m determines the outcome (e.g. reward(1) versus no reward (0))following the action of the chosen system.
 -  learn.m simulates the Q-learning of each system.
 -  learn_phi.m updates the system's meta-confidence/phi after each executed action and encountered outcome.
+-  plot_simulations.m plots the meta-confidence/phi of each system over iterations as well as the Q-value of each system associated with the right and the left stimulus.

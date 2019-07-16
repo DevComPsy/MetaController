@@ -36,5 +36,8 @@ for g = 1:settings.niter
     
     % update confidence
     [mc] = learn_phi(mc,settings,g);
-    
+      
 end
+
+%% plot simulations
+    plot_simulations(mc,settings);

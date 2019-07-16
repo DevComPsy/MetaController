@@ -38,3 +38,5 @@ for g = 1:settings.niter
     [mc] = learn_phi(mc,settings,g);
     
 end
+%% plot simulations
+    plot_simulations(mc,settings);
