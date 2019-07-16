@@ -1,5 +1,5 @@
 function [mc] = learn(mc,task,settings,g)
-
+%function simulating the Q-learning of each system
     
 %% calc PEs for each system
 
@@ -17,10 +17,9 @@ for i = 1:settings.nsystems
         error('undefined model')
     end    
     
-    % compute PE
     mc.pe{i}(g) = task.outcome(g) - q_val_chosen;
     
-    % update  Q value for chosen state
+%% update  Q value for chosen state
     if mc.dims(i) == 1
         mc.Q{i}(:,end+1) = mc.Q{i}(:,end);
         mc.Q{i}(task.chosenstimulus(1,g),end) =  mc.Q{i}(task.chosenstimulus(1,g),end) + settings.alpha * mc.pe{i}(g);

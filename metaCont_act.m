@@ -1,9 +1,7 @@
 function [idx,mc,task] = metaCont_act(mc,task,g)
-
-
-% selecting a system (with highest confidence, argmin)from which we collect 
-% a Q value determining the action
-
+%Simulation of the meta-controller. 
+%The meta-controller selects one system (with the highest phi, argmin)whose 
+%chosen action will then be executed.
 
 [~,idx] = min(mc.phi(:,end));
 

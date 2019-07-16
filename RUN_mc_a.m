@@ -15,7 +15,7 @@ settings.nsystems=2;
 [mc] = mc_initialize(settings.nsystems);
 [task] = task_initialize();
 
-%% loop through games
+%% loop through game A
 for g = 1:settings.niter
     disp(g)
     

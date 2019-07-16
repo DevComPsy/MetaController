@@ -1,15 +1,16 @@
 function [mc, task] = act(mc, task,settings, g)
+ %Action determination of each system based on Q-values associated with the
+ %dispalyed stimulus. 
  
  % Input needed: 
- 
  invtemp=settings.invtemp;
 
  for i = 1:settings.nsystems
      
-     %% get Q values for given stimuli
+%% get Q values for given stimuli
      Q = [];
      
-     for q = 1:2 % 2 stimuli
+     for q = 1:2 %2 stimuli
          if mc.dims(i) == 1
              Q(q) = mc.Q{i}(task.shown_stimulus(q,1,g),end);
          elseif mc.dims(i) == 2
@@ -22,28 +23,14 @@ function [mc, task] = act(mc, task,settings, g)
      end
      
      
-     %% action selection of system
-     % compute policy based on q values
-     
+%% action selection of system
      Q = Q - max(Q);
      exqs = exp(invtemp*Q);
-     if rand < exqs/sum(exqs)                        % make choice using softmax
+     if rand < exqs/sum(exqs)  %choice is made using a softmax                      
          mc.act{i}(g) = 1;
      else
          mc.act{i}(g) = 2;
      end
-
-
-% %% action selection mb system 
-% 
-% 
-% qs = mc.Qc{i}(:)- max(mc.Qc{i}(:));
-% exqs = exp(invtemp*qs);
-% if rand < exqs/sum(exqs)                        % make choice using softmax
-%         task.action(:,2) = 1;
-%     else
-%         task.action(:,2) = 2;
-% end
 
  end
 end
