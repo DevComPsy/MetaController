@@ -1,37 +1,40 @@
 clear all; close all; clc
-     alpha = .3;
-     alphasystem = .3;
-     niter = 20;
-     nstates = 2;
-     nactions = 2;
-     invtemp= 1;
-     nsystems=2;
-     cost = 1;
      
 
+%% parameter settings
+settings = [];
+settings.alpha = .3;
+% settings.alphasystem = .3;
+settings.niter = 20;
+settings.invtemp= 1;
+settings.nsystems=2;
+% settings.cost = 1;
+
+
 %% initialize
-[mc] = mc_initialize(alpha,nstates,nactions, nsystems);
-[task] = task_initialize(niter,nstates,nactions);
+[mc] = mc_initialize(settings.nsystems);
+[task] = task_initialize();
 
 %% loop through games
-for g = 1:niter
+for g = 1:settings.niter
+    disp(g)
     
-      % function simulating task a
-    [mc, task] = task_b(mc, task);
+    % function simulating task a
+    [mc, task] = task_b(mc,task,g);
     
-      % action selection each system
-    [mc, task]=act(mc, task); 
+    % action selection each system
+    [mc, task] = act(mc, task,settings,g);
     
-      % action selection meta-controller
-    [idx, mc, task] = metaCont_act(mc, task);
-
-    task.outcome_prob = task.all_outcome_prob(task.choice); 
-    task.outcome=rand(1)<=task.outcome_prob; 
-      
-     % PE learning
-    [mc] = learn(mc,task, nactions,alpha,nstates, idx, niter);
-
-     % update confidence
-    [mc] = learn_phi(mc,alphasystem,cost,idx, task, nsystems);
+    % action selection meta-controller
+    [idx, mc, task] = metaCont_act(mc, task, g);
+    
+    % determine outcome
+    [task] = determine_outcome(mc,task,g);
+    
+    % PE learning
+    [mc] = learn(mc,task,settings,g);
+    
+    % update confidence
+    [mc] = learn_phi(mc,settings,g);
     
 end

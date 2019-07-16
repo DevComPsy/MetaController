@@ -18,6 +18,4 @@ for i = 1:nsystems
         mc.dims(i) = 0;
     end
     mc.act{i} = [];
-%     mc.pesystem(i) = nan; 
-%     mc.vstate(i) = 0;
 end

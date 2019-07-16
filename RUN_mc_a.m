@@ -6,8 +6,6 @@ settings = [];
 settings.alpha = .3;
 % settings.alphasystem = .3;
 settings.niter = 20;
-% settings.nstates = 2;
-% settings.nactions = 2;
 settings.invtemp= 1;
 settings.nsystems=2;
 % settings.cost = 1;
@@ -32,9 +30,7 @@ for g = 1:settings.niter
     
     % determine outcome
     [task] = determine_outcome(mc,task,g);
-    %     task.outcome_prob = task.all_outcome_prob(task.choice);
-    %     task.outcome=rand(1)<=task.outcome_prob;
-    
+   
     % PE learning
     [mc] = learn(mc,task,settings,g);
     
