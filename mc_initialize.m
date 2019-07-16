@@ -1,14 +1,23 @@
-function [mc] = mc_initialize(niter, nactions, nstates, nsystems)
+function [mc] = mc_initialize(nsystems)
 
 % structure with the following fields
     
 mc = [];
     
-for i = 1:length(nsystems)
-    mc.phi{i} = 0;         % inverse confidence
-    mc.pe{i} = 0;
-    mc.Qs{i} = zeros(2,1);
-    mc.Qc{i} = zeros(2,2,2);
-    mc.pesystem (i) = nan; 
-    mc.vstate (i) = 0;
+for i = 1:nsystems
+    mc.phi(i,1) = 0;         % inverse confidence
+    mc.pe{i} = [];
+    if i == 1   % simple system
+        mc.Q{i} = zeros(2,1);
+        mc.dims(i) = 1;
+    elseif i == 2   % complex system
+        mc.Q{i} = zeros(2,2,2);
+        mc.dims(i) = 3;
+    else
+        mc.Q{i} = [];
+        mc.dims(i) = 0;
+    end
+    mc.act{i} = [];
+%     mc.pesystem(i) = nan; 
+%     mc.vstate(i) = 0;
 end
