@@ -3,7 +3,7 @@ function [mc] = mc_initialize(nsystems)
 mc = [];
     
 for i = 1:nsystems
-    mc.phi(i,1) = 0; %inverse confidence for each system
+    mc.phi(i,1) = .5; %inverse confidence for each system
     mc.pe{i} = []; %prediction error for each system
     if i == 1   % Q-values for the simple system
         mc.Q{i} = zeros(2,1);

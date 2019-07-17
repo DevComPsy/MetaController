@@ -1,0 +1,40 @@
+function plot_learning(mc,task,settings)
+
+%% set up
+close all
+cols = [1.0, 0.4, 0.4; 0.0, 0.0, 0.4; 1 0 0; 0 1 0; 0 0 1];
+
+
+%% evolution of meta-confidence
+figure('Color','w');
+set(gcf,'Unit','centimeters','OuterPosition',[0 15 30 15]);
+set(gca,'FontName','Arial','FontSize',10)
+hold on
+% plot confidence
+for s = 1:settings.nsystems
+    plot(1-mc.phi(s,:),'color',cols(s,:),'LineWidth',2)
+end
+legend(settings.sys_labels)
+
+% plot chosen system
+for s = 1:settings.nsystems
+    plot(find(task.chosen_system==s), ones(numel(find(task.chosen_system==s)),1),'d','MarkerFaceColor',cols(s,:));
+end
+
+xlabel('trial t')
+ylabel('meta-confidence (1-phi)')
+xlim([0 settings.niter])
+
+%% evolution of Q values for each system
+for s = 1:settings.nsystems
+    figure('Color','w');
+    set(gcf,'Unit','normalize','OuterPosition',[0+s/5 .7-s/5 .3 .3]);
+    set(gca,'FontName','Arial','FontSize',10)
+    hold on
+    title(settings.sys_labels{s})
+    
+    sz = size(mc.Q{s});
+    nstates = prod(sz(1:end-1));
+    Q = reshape(mc.Q{2}(:),nstates,settings.niter+1);
+    plot(Q
+        

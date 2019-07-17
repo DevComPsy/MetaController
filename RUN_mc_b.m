@@ -4,11 +4,11 @@ clear all; close all; clc
 %% parameter settings
 settings = [];
 settings.alpha = .3;
-% settings.alphasystem = .3;
-settings.niter = 100;
+settings.complexity_cost = 0;
+settings.niter = 1000;
 settings.invtemp= 1;
 settings.nsystems=2;
-% settings.cost = 1;
+settings.sys_labels = {'simple motor','complex'};
 
 
 %% initialize
@@ -17,7 +17,7 @@ settings.nsystems=2;
 
 %% loop through game B
 for g = 1:settings.niter
-    disp(g)
+%     disp(g)
     
     % function simulating task a
     [mc, task] = task_b(mc,task,g);
@@ -39,4 +39,5 @@ for g = 1:settings.niter
     
 end
 %% plot simulations
-    plot_simulations(mc,settings);
+plot_learning(mc,task,settings)
+%     plot_simulations(mc,settings);
