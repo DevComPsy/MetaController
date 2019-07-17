@@ -4,6 +4,7 @@ c= struct('s', [1.0, 0.4, 0.4], ...
     'c', [0.0, 0.0, 0.4]);
 
 %% plotting phi/meta-confidence in each system.
+figure(1)
 plot((1:settings.niter+1),mc.phi(1,:),'Color',c.s)
 hold on
 plot((1:settings.niter+1),mc.phi(2,:),'Color',c.c)
@@ -13,7 +14,7 @@ title('Development of meta-confidence of each system over iterations', 'fontsize
 xlabel('Iterations','fontsize', 14,'fontname','Times');
 xlim([1 settings.niter+1]);
 ylabel('Phi','fontsize', 14, 'fontname','Times')
-
+hold off 
 %% plotting the Q-values of each system for left and right stimulus.
 
 %average the Q-values for right and left across contexts for the complex
@@ -25,6 +26,7 @@ for n =1: settings.niter+1
    qnew(2,n)  =mean(mc.Q{1,2}(:,2,2,n)+ mc.Q{1,2}(:,2,1,n))
 end
 %plot simple system
+figure(2)
 plot((1:settings.niter+1), mc.Q{1,1}(1,:),'--','Color',c.s)
 hold on 
 plot((1:settings.niter+1), mc.Q{1,1}(2,:),'Color',c.s)

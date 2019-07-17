@@ -5,7 +5,7 @@ clear all; close all; clc
 settings = [];
 settings.alpha = .3;
 % settings.alphasystem = .3;
-settings.niter = 20;
+settings.niter = 100;
 settings.invtemp= 1;
 settings.nsystems=2;
 % settings.cost = 1;
