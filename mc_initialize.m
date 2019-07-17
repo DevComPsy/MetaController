@@ -8,6 +8,11 @@ for i = 1:nsystems
     if i == 1   % Q-values for the simple system
         mc.Q{i} = zeros(2,1);
         mc.dims(i) = 1;
+    % faulty complex system: does not take context into account
+%     elseif i == 2   % Q-values for the complex system
+%         mc.Q{i} = zeros(2,2);
+%         mc.dims(i) = 2;
+    % intact complex system
     elseif i == 2   % Q-values for the complex system
         mc.Q{i} = zeros(2,2,2);
         mc.dims(i) = 3;

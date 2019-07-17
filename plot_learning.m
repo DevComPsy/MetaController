@@ -13,14 +13,14 @@ hold on
 title('meta-confidence')
 % plot confidence
 for s = 1:settings.nsystems
-    plot(1-mc.phi(s,:),'color',cols(s,:),'LineWidth',2)
+    h(s) = plot(1-mc.phi(s,:),'color',cols(s,:),'LineWidth',2);
 end
-legend(settings.sys_labels)
 
 % plot chosen system
 for s = 1:settings.nsystems
     plot(find(task.chosen_system==s), ones(numel(find(task.chosen_system==s)),1),'.','color',cols(s,:));
 end
+legend(h,settings.sys_labels)
 
 xlabel('trial t')
 ylabel('meta-confidence (1-phi)')

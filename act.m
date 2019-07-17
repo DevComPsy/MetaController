@@ -24,11 +24,10 @@ function [mc, task] = act(mc, task,settings, g)
      
      
 %% action selection of system
+  %choice is made using a softmax  
     pi = 1 / (1 + exp(-(Q(1)-Q(2))*invtemp));
-    if rand < pi
-%      Q = Q - max(Q);
-%      exqs = exp(invtemp*Q);
-%      if rand < exqs/sum(exqs)  %choice is made using a softmax                      
+    
+    if rand < pi                    
          mc.act{i}(g) = 1;
      else
          mc.act{i}(g) = 2;
