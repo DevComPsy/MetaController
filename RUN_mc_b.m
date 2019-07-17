@@ -40,4 +40,3 @@ for g = 1:settings.niter
 end
 %% plot simulations
 plot_learning(mc,task,settings)
-%     plot_simulations(mc,settings);

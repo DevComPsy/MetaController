@@ -25,16 +25,6 @@ for s = 1:2 % both stimuli
     end
 end
 
-
-% if  shown_stim(:,2) == [1 2], shown_stim(:,3) == [1 1];
-%     prob1 = 0.40  , prob2 = 0.70 ; 
-% elseif shown_stim(:,2) == [2 1], shown_stim(:,3) == [1 1];
-%     prob1 = 0.30  , prob2 = 0.60 ; 
-% elseif shown_stim(:,2) == [1 2], shown_stim(:,3) == [2 2];   
-%     prob1 = 0.60  , prob2 = 0.30 ; 
-% else shown_stim(:,2) == [2 1], shown_stim(:,3) == [2 2];
-%     prob1 = 0.70  , prob2 = 0.40 ; end
-
 %% determine potential outcomes
 task.pot_outcomes(1,g) = rand(1)<=ps(1); %outcome probability of the left stimulus sign
 task.pot_outcomes(2,g) = rand(1)<=ps(1); %outcome probability of right stimulus sign

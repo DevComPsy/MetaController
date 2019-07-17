@@ -20,4 +20,13 @@ The following functions will be described in the order that they are called by R
 -  determine_outcome.m determines the outcome (e.g. reward(1) versus no reward (0))following the action of the chosen system.
 -  learn.m simulates the Q-learning of each system.
 -  learn_phi.m updates the system's meta-confidence/phi after each executed action and encountered outcome.
--  plot_simulations.m plots the meta-confidence/phi of each system over iterations as well as the Q-value of each system associated with the right and the left stimulus.
+
+-  plot_learning.m plots the Q-value of each system associated with the right and the left stimulus as well as the the meta-confidence/1-phi of each system over all trials.
+
+# POTENTIAL PATHOMECHANISMS as described in the paper.
+
+1. One potential pathomechanism could be that the meta-controller inherently asigns a cost to the complex system that is too high. 
+Simulation: Increase the free parameter "settings.complexity_cost" in RUN_mc_b.m to see the effect. 
+
+2. Alternatively, the complex system itself could be impaired. The complex system might not take the third (context) dimension into account. 
+Simulation: Uncomment line 12-14 and comment line 16-21 for the complex system not to take the third dimension into account. 
