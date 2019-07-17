@@ -1,4 +1,4 @@
-# MetaController
+# Meta-controller
 
 Code for the paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser JAACAP (in rev).
 This repository contains the MATLAB code used to simulate the meta-controller framework proposed in the paper. 
@@ -23,7 +23,7 @@ The following functions will be described in the order that they are called by R
 
 -  plot_learning.m plots the Q-value of each system associated with the right and the left stimulus as well as the the meta-confidence/1-phi of each system over all trials.
 
-# POTENTIAL PATHOMECHANISMS as described in the paper.
+# Potential Pathomechanisms
 
 1. One potential pathomechanism could be that the meta-controller inherently asigns a cost to the complex system that is too high. 
 Simulation: Increase the free parameter "settings.complexity_cost" in RUN_mc_b.m to see the effect. 
