@@ -5,7 +5,7 @@ function [mc] = learn(mc,task,settings,g)
 
 for i = 1:settings.nsystems
     
-    % get chosen Q value of system
+    %% get chosen Q value of system
     q_val_chosen = [];
     if mc.dims(i) == 1
         q_val_chosen = mc.Q{i}(task.chosenstimulus(1,g),end);
@@ -19,7 +19,7 @@ for i = 1:settings.nsystems
     
     mc.pe{i}(g) = task.outcome(g) - q_val_chosen;
     
-%% update  Q value for chosen state
+    %% update Q value for chosen state
     if mc.dims(i) == 1
         mc.Q{i}(:,end+1) = mc.Q{i}(:,end);
         mc.Q{i}(task.chosenstimulus(1,g),end) =  mc.Q{i}(task.chosenstimulus(1,g),end) + settings.alpha * mc.pe{i}(g);

@@ -27,6 +27,6 @@ end
 
 %% determine potential outcomes
 task.pot_outcomes(1,g) = rand(1)<=ps(1); %outcome probability of the left stimulus sign
-task.pot_outcomes(2,g) = rand(1)<=ps(1); %outcome probability of right stimulus sign
+task.pot_outcomes(2,g) = rand(1)<=ps(2); %outcome probability of right stimulus sign
 
 end 

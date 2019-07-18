@@ -3,10 +3,10 @@ clear all; close all; clc
 
 %% parameter settings
 settings = [];
-settings.alpha = .3;
+settings.alpha = .2;
 settings.complexity_cost = 0;
 settings.niter = 1000;
-settings.invtemp= 1;
+settings.invtemp= 3;
 settings.nsystems=2;
 settings.sys_labels = {'simple motor','complex'};
 
@@ -26,7 +26,7 @@ for g = 1:settings.niter
     [mc, task] = act(mc, task,settings,g);
     
     % action selection meta-controller
-    [idx, mc, task] = metaCont_act(mc, task, g);
+    [idx, mc, task] = metaCont_act(mc, task, settings, g);
     
     % determine outcome
     [task] = determine_outcome(mc,task,g);

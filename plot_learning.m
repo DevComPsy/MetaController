@@ -42,3 +42,19 @@ for s = 1:settings.nsystems
     ylabel('Q(s)')
     xlim([0 settings.niter])
 end
+
+%% performance of each system and total system
+figure('Color','w');
+set(gcf,'Unit','normalized','OuterPosition',[.1 .1 .4 .4]);
+set(gca,'FontName','Arial','FontSize',10)
+rew = [];
+for s = 1:settings.nsystems
+    rew(s) = (sum(task.pot_outcomes(1,find(mc.act{s}==1))) + sum(task.pot_outcomes(2,find(mc.act{s}==2))));
+end
+rew(3) = sum(task.outcome);
+bar(rew,'k')
+% ylim([min(rew)-std(task.outcome) max(rew)+std(task.outcome)])
+ylim([min(rew)-30 max(rew)+30])
+ylabel('total reward')
+set(gca,'XTickLabels',{settings.sys_labels{:},'metacontroller'})
+title('performance')
