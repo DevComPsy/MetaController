@@ -31,5 +31,5 @@ Simulation: Increase the free parameter "settings.complexity_cost" in RUN_mc_b.m
 2. Alternatively, the meta-controller could be broken so that it does not select the correct system (ignoring meta-confidence). 
 Simulation: Uncomment line 9 in metaCont_act.m.
 
-3. Moreover, the complex system itself could be impaired. It might not take the third (context) dimension into account. 
+3. Moreover, the complex system itself could be impaired. The complex system might not take the third (context) dimension into account. 
 Simulation: Uncomment line 13-15 in mc_initialize.m for the complex system not to take the third dimension into account. 
