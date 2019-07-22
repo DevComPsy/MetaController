@@ -25,10 +25,11 @@ The following functions will be described in the order that they are called by R
 
 # Potential Pathomechanisms
 
-1. One potential pathomechanism could be that meta-confidence process goes awry. This can easily simulated by asigning a too high complexity cost. 
+1. One potential pathomechanism could be that the meta-confidence process goes awry. This can easily be simulated by asigning a complexity cost that is too high. 
 Simulation: Increase the free parameter "settings.complexity_cost" in RUN_mc_b.m to see the effect. 
 
-2. Alternatively, the meta-controller might be broken so that is does not select the right system (ignoring meta-confidence). This can be simulated by uncommenting line 9 in metaCont_act.m
+2. Alternatively, the meta-controller could be broken so that it does not select the correct system (ignoring meta-confidence). 
+Simulation: Uncomment line 9 in metaCont_act.m.
 
-3. Moreover, the complex system itself could be impaired. The complex system might not take the third (context) dimension into account. 
+3. Moreover, the complex system itself could be impaired. It might not take the third (context) dimension into account. 
 Simulation: Uncomment line 13-15 in mc_initialize.m for the complex system not to take the third dimension into account. 
