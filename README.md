@@ -10,7 +10,7 @@ This repository contains the MATLAB code used to simulate the meta-controller fr
 The following functions will be described in the order that they are called by RUN_mc_a.m and RUN_mc_b.m. 
 
 -  mc_initialize.m is a initialization code assigning values to all variables during run time that are system specific. 
--  task_initialize.m is a initialization code assigning values to all variables during run time that task specific. 
+-  task_initialize.m is a initialization code assigning values to all variables during run time that are task specific. 
 
 -  task_a.m implements a simple motor task with one action (e.g. left or right click) giving rewards. E.g. two stimuli are presented and their reward probability depends on their location (left or right). All systems should be able to master this task.
 -  task_b.m implements a more complex decision-making task (e.g. each stimulus is associated with a different reward probability depending on  symbol, context and position). The complex system was expected to outperform the simpler systems on this task. 
