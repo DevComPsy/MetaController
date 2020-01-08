@@ -1,7 +1,7 @@
-# Meta-controller
+# Metacontroller
 
-Code for the paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser JAACAP (in rev).
-This repository contains the MATLAB code used to simulate the meta-controller framework proposed in the paper. 
+Code for the paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser (in rev).
+This repository contains the MATLAB code used to simulate the metacontroller framework proposed in the paper. 
 
 
 -  RUN_mc_a.m sets all free parameters and runs through task_a, a low-complexity game (see description below). 
@@ -16,19 +16,19 @@ The following functions will be described in the order that they are called by R
 -  task_b.m implements a more complex decision-making task (e.g. each stimulus is associated with a different reward probability depending on  symbol, context and position). The complex system was expected to outperform the simpler systems on this task. 
 
 -  act.m determines the actions chosen by the different systems. 
--  metaCont_act.m simulates the system selection of the meta-controller. Based on the highest meta-confidence/phi the meta-controller chooses the system determining the executed action.
+-  metaCont_act.m simulates the system selection of the metacontroller. Based on the highest metaconfidence/phi the metacontroller chooses the system determining the executed action.
 -  determine_outcome.m determines the outcome (e.g. reward(1) versus no reward (0))following the action of the chosen system.
 -  learn.m simulates the Q-learning of each system.
--  learn_phi.m updates the system's meta-confidence/phi after each executed action and encountered outcome.
+-  learn_phi.m updates the system's metaconfidence/phi after each executed action and encountered outcome.
 
--  plot_learning.m plots the Q-value of each system associated with the right and the left stimulus as well as the the meta-confidence/1-phi of each system over all trials.
+-  plot_learning.m plots the Q-value of each system associated with the right and the left stimulus as well as the the metaconfidence/1-phi of each system over all trials.
 
 # Potential Pathomechanisms
 
-1. One potential pathomechanism could be that the meta-confidence process goes awry. This can easily be simulated by assigning a complexity cost that is too high. 
+1. One potential pathomechanism could be that the metaconfidence process goes awry. This can easily be simulated by assigning a complexity cost that is too high. 
 Simulation: Increase the free parameter "settings.complexity_cost" in RUN_mc_b.m to see the effect. 
 
-2. Alternatively, the meta-controller could be broken so that it does not select the correct system (ignoring meta-confidence). 
+2. Alternatively, the metacontroller could be broken so that it does not select the correct system (ignoring metaconfidence). 
 Simulation: Uncomment line 9 in metaCont_act.m.
 
 3. Moreover, the complex system itself could be impaired. The complex system might not take the third (context) dimension into account. 
