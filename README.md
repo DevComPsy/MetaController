@@ -17,7 +17,7 @@ The following functions will be described in the order that they are called by R
 
 -  act.m determines the actions chosen by the different systems. 
 -  metaCont_act.m simulates the system selection of the meta-controller. Based on the highest meta-confidence/phi the meta-controller chooses the system determining the executed action.
--  determine_outcome.m determines the outcome (e.g. reward(1) versus no reward (0))following the action of the chosen system.
+-  determine_outcome.m determines the outcome (e.g. reward(1) versus no reward (0)) following the action of the chosen system.
 -  learn.m simulates the Q-learning of each system.
 -  learn_phi.m updates the system's meta-confidence/phi after each executed action and encountered outcome.
 
@@ -25,7 +25,7 @@ The following functions will be described in the order that they are called by R
 
 # Potential Pathomechanisms
 
-1. One potential pathomechanism could be that the meta-confidence process goes awry. This can easily be simulated by assigning a complexity cost that is too high. 
+1. One potential pathomechanism could be that the process forming meta-confidence goes awry. This can easily be simulated by assigning a complexity cost that is too high. 
 Simulation: Increase the free parameter "settings.complexity_cost" in RUN_mc_b.m to see the effect. 
 
 2. Alternatively, the meta-controller could be broken so that it does not select the correct system (ignoring meta-confidence). 
