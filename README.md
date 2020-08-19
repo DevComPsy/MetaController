@@ -1,6 +1,6 @@
 # Meta-Controller
 
-Code for the paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser (in rev).
+Code for the paper "Towards a Computational Psychiatry of Juvenile Obsessive-Compulsive Disorder" Loosen & Hauser (2020). Neuroscience & Biobehavioral Reviews.
 This repository contains the MATLAB code used to simulate the meta-controller framework proposed in the paper. 
 
 
