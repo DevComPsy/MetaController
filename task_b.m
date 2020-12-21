@@ -1,4 +1,4 @@
-function [mc, task] = task_a(mc,task,g)
+function [mc, task] = task_b(mc,task,g)
 %Implementation of a more complex dimensions task. 
 
 %% set up stimulus presentation
